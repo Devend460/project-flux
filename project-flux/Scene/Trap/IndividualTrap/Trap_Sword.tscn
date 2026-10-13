@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://cm7g3ydr35s5o"]
+
+[ext_resource type="Texture2D" uid="uid://1rtju0yg8c6h" path="res://Image/Tile/Trap_Sword_Sheet.png" id="1_i4wsn"]
+[ext_resource type="Script" uid="uid://cycqr4nehdk0j" path="res://Scene/Trap/IndividualTrap/trap_sword.gd" id="1_wufet"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4bp5"]
+atlas = ExtResource("1_i4wsn")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e1id"]
+atlas = ExtResource("1_i4wsn")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7bnl"]
+atlas = ExtResource("1_i4wsn")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxfre"]
+atlas = ExtResource("1_i4wsn")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clsii"]
+atlas = ExtResource("1_i4wsn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwa43"]
+atlas = ExtResource("1_i4wsn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjdi5"]
+atlas = ExtResource("1_i4wsn")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41d00"]
+atlas = ExtResource("1_i4wsn")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnjh1"]
+atlas = ExtResource("1_i4wsn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fu0iy"]
+atlas = ExtResource("1_i4wsn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6o06"]
+atlas = ExtResource("1_i4wsn")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs881"]
+atlas = ExtResource("1_i4wsn")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qv5m"]
+atlas = ExtResource("1_i4wsn")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1iwo"]
+atlas = ExtResource("1_i4wsn")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7bnl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4bp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6e1id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7bnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxfre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clsii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwa43")
+}],
+"loop": false,
+"name": &"end",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjdi5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41d00")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnjh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fu0iy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6o06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gs881")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qv5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1iwo")
+}],
+"loop": false,
+"name": &"start",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mhixm"]
+size = Vector2(23, 30)
+
+[node name="TrapSword" type="Node2D" unique_id=1163281709]
+scale = Vector2(2, 2)
+script = ExtResource("1_wufet")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=656864911]
+position = Vector2(16, 16)
+sprite_frames = SubResource("SpriteFrames_g7bnl")
+animation = &"start"
+
+[node name="Timer" type="Timer" parent="." unique_id=277516539]
+one_shot = true
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=261116437]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1668593784]
+position = Vector2(15.5, 17)
+shape = SubResource("RectangleShape2D_mhixm")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

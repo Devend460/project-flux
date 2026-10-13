@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cbb88hbb44o61"]
+
+[ext_resource type="Script" uid="uid://0cr2xmw0gt23" path="res://Scene/Trap/trap_pattern_debug.gd" id="1_qp1y4"]
+
+[node name="TrapPatternDebug" type="Node2D" unique_id=2089593109]
+script = ExtResource("1_qp1y4")
+
+[node name="Timer" type="Timer" parent="." unique_id=1011683635]
+one_shot = true

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://caa36h0xxkvti"]
+
+[ext_resource type="Script" uid="uid://dqup2tqu71b5c" path="res://Scene/UI/in_game_ui.gd" id="1_m5slw"]
+
+[node name="InGameUi" type="Control" unique_id=87047016]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m5slw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1196700030]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

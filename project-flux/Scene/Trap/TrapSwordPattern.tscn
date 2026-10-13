@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b71m1tdmcckta"]
+
+[ext_resource type="Script" uid="uid://byq6f7ek5ynex" path="res://Scene/Trap/trap_sword_pattern.gd" id="1_1cwgd"]
+
+[node name="TrapSwordPattern" type="Node2D" unique_id=1246723163]
+script = ExtResource("1_1cwgd")
+
+[node name="Timer" type="Timer" parent="." unique_id=316793011]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

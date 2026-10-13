@@ -1,0 +1,441 @@
+[gd_scene format=3 uid="uid://dogxi3wxf25sb"]
+
+[ext_resource type="Script" uid="uid://bch3ld4h0xrle" path="res://Scene/Ennemi/templar.gd" id="1_5lrpp"]
+[ext_resource type="Script" uid="uid://bb0t2ovl7wifo" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_qoath"]
+[ext_resource type="Texture2D" uid="uid://bgx06qbwbdv5l" path="res://Image/Ennemi/Templar_down.png" id="2_vaddn"]
+[ext_resource type="Script" uid="uid://bbgv7rx848lwo" path="res://Scene/Ennemi/AI/condition_medium_range.gd" id="4_0nd5p"]
+[ext_resource type="Script" uid="uid://8hn4kne15ac5" path="res://addons/beehave/nodes/composites/selector.gd" id="4_bkwx7"]
+[ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="5_po7w5"]
+[ext_resource type="Script" uid="uid://b5k0f630bbhos" path="res://Scene/Ennemi/couldown_slash.gd" id="7_g4k8i"]
+[ext_resource type="Script" uid="uid://coxeekff0lwvk" path="res://Scene/Ennemi/attaque_joueur.gd" id="7_vaddn"]
+[ext_resource type="Script" uid="uid://dcbj3eq01i0rl" path="res://Scene/Ennemi/follow_player.gd" id="8_vaddn"]
+[ext_resource type="Script" uid="uid://cidmp7ldqf6ff" path="res://Scene/Ennemi/temp_failed.gd" id="9_ly6j8"]
+[ext_resource type="Texture2D" uid="uid://bbi1ogc8ac8st" path="res://Image/Ennemi/Sword_training-4.png.png" id="9_s1oq8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1oq8"]
+atlas = ExtResource("2_vaddn")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4k8i"]
+atlas = ExtResource("2_vaddn")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ly6j8"]
+atlas = ExtResource("2_vaddn")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrbmf"]
+atlas = ExtResource("2_vaddn")
+region = Rect2(0, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5w50x"]
+atlas = ExtResource("2_vaddn")
+region = Rect2(96, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkobf"]
+atlas = ExtResource("2_vaddn")
+region = Rect2(192, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvp3v"]
+atlas = ExtResource("2_vaddn")
+region = Rect2(0, 192, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suvr1"]
+atlas = ExtResource("2_vaddn")
+region = Rect2(96, 192, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kon4d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1oq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4k8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ly6j8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrbmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5w50x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkobf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvp3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suvr1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Animation" id="Animation_vaddn"]
+resource_name = "Idle"
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_g4k8i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sword_Rotation/Rotation_FirstSword:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5707964]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sword_Rotation/Rotation_SecondSword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.7453293]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sword_Rotation/Rotation_SecondSword/Position_SecondSword:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -130)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sword_Rotation/Rotation_FirstSword/Position_FirstSword:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -130)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sword_Rotation/Rotation_FirstSword/Position_FirstSword/Area_FirstSword:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sword_Rotation/Rotation_SecondSword/Position_SecondSword/Area_SecondSword:monitoring")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sword_Rotation/Rotation_SecondSword:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sword_Rotation/Rotation_FirstSword:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sword_Rotation/Rotation_FirstSword:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sword_Rotation/Rotation_SecondSword:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_s1oq8"]
+resource_name = "SwordSlash"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sword_Rotation/Rotation_FirstSword:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.5, 1.4, 2),
+"transitions": PackedFloat32Array(0.3, 0.3, 0.5, 0.5),
+"update": 0,
+"values": [1.3962634015954636, -1.3962634015954636, 2.0943951023931953, -2.0943951023931953]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sword_Rotation/Rotation_SecondSword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7, 1.2, 1.4, 2),
+"transitions": PackedFloat32Array(0.4, 0.4, 0.5, 0.5),
+"update": 0,
+"values": [-1.7453293, 1.7453292519943295, -2.0943951023931953, 2.0943951023931953]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sword_Rotation/Rotation_SecondSword/Position_SecondSword:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sword_Rotation/Rotation_FirstSword/Position_FirstSword:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sword_Rotation/Rotation_FirstSword/Position_FirstSword/Area_FirstSword:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sword_Rotation/Rotation_SecondSword/Position_SecondSword/Area_SecondSword:monitoring")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.6, 1.2, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sword_Rotation/Rotation_SecondSword:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sword_Rotation/Rotation_FirstSword:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sword_Rotation/Rotation_FirstSword:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(2, 2), Vector2(2, 2)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sword_Rotation/Rotation_SecondSword:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.6, 1.2, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(2, 2), Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s1oq8"]
+_data = {
+&"Idle": SubResource("Animation_vaddn"),
+&"RESET": SubResource("Animation_g4k8i"),
+&"SwordSlash": SubResource("Animation_s1oq8")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1oq8"]
+size = Vector2(35, 100)
+
+[node name="Templar" type="Node2D" unique_id=2005835324]
+script = ExtResource("1_5lrpp")
+speed = 100.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1253169841]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_kon4d")
+
+[node name="BeehaveTree" type="Node" parent="." unique_id=1072440209 node_paths=PackedStringArray("blackboard", "actor")]
+script = ExtResource("1_qoath")
+actor_node_path = NodePath("..")
+blackboard = NodePath("@Node@18811")
+actor = NodePath("..")
+metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
+
+[node name="SelectorComposite" type="Node" parent="BeehaveTree" unique_id=219382868]
+script = ExtResource("4_bkwx7")
+metadata/_custom_type_script = "uid://8hn4kne15ac5"
+
+[node name="CheckPortee" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=825489795]
+script = ExtResource("5_po7w5")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"
+
+[node name="PorteeMoyenne" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee" unique_id=1316803047]
+script = ExtResource("4_0nd5p")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="SequenceComposite" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee" unique_id=1288291324]
+script = ExtResource("4_bkwx7")
+metadata/_custom_type_script = "uid://8hn4kne15ac5"
+
+[node name="Slash_Attaque" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceComposite" unique_id=1203345764]
+script = ExtResource("5_po7w5")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"
+
+[node name="Couldown_Slash" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceComposite/Slash_Attaque" unique_id=627689350]
+script = ExtResource("7_g4k8i")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="AttaqueJoueur" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceComposite/Slash_Attaque" unique_id=665323982]
+script = ExtResource("7_vaddn")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="Temp_Failed" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceComposite" unique_id=575234161]
+script = ExtResource("9_ly6j8")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="FollowPlayer" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=186517694]
+script = ExtResource("8_vaddn")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=585970936]
+libraries/ = SubResource("AnimationLibrary_s1oq8")
+
+[node name="Sword_Rotation" type="Node2D" parent="." unique_id=368354302]
+
+[node name="Rotation_FirstSword" type="Node2D" parent="Sword_Rotation" unique_id=2130675199]
+rotation = 1.5707964
+
+[node name="Position_FirstSword" type="Node2D" parent="Sword_Rotation/Rotation_FirstSword" unique_id=768213202]
+position = Vector2(0, -130)
+
+[node name="First_Sword" type="Sprite2D" parent="Sword_Rotation/Rotation_FirstSword/Position_FirstSword" unique_id=1266060030]
+scale = Vector2(2.0000002, 2.0000002)
+texture = ExtResource("9_s1oq8")
+
+[node name="Area_FirstSword" type="Area2D" parent="Sword_Rotation/Rotation_FirstSword/Position_FirstSword" unique_id=900584343]
+scale = Vector2(1.0000001, 1.0000001)
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword_Rotation/Rotation_FirstSword/Position_FirstSword/Area_FirstSword" unique_id=1825617327]
+shape = SubResource("RectangleShape2D_s1oq8")
+
+[node name="Rotation_SecondSword" type="Node2D" parent="Sword_Rotation" unique_id=511032223]
+rotation = -1.7453293
+
+[node name="Position_SecondSword" type="Node2D" parent="Sword_Rotation/Rotation_SecondSword" unique_id=288101667]
+position = Vector2(0, -130)
+
+[node name="Second_Sword" type="Sprite2D" parent="Sword_Rotation/Rotation_SecondSword/Position_SecondSword" unique_id=739387462]
+scale = Vector2(2.0000002, 2.0000002)
+texture = ExtResource("9_s1oq8")
+
+[node name="Area_SecondSword" type="Area2D" parent="Sword_Rotation/Rotation_SecondSword/Position_SecondSword" unique_id=873455967]
+scale = Vector2(1.0000001, 1.0000001)
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword_Rotation/Rotation_SecondSword/Position_SecondSword/Area_SecondSword" unique_id=1432857995]
+shape = SubResource("RectangleShape2D_s1oq8")
+
+[node name="Couldown" type="Node2D" parent="." unique_id=523879616]
+
+[node name="SlashTimer" type="Timer" parent="Couldown" unique_id=2121893687]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="BeehaveTree/SelectorComposite/CheckPortee/SequenceComposite/Slash_Attaque/AttaqueJoueur" method="_on_animation_player_animation_finished"]
+[connection signal="area_entered" from="Sword_Rotation/Rotation_FirstSword/Position_FirstSword/Area_FirstSword" to="." method="_on_area_first_sword_area_entered"]
+[connection signal="area_entered" from="Sword_Rotation/Rotation_SecondSword/Position_SecondSword/Area_SecondSword" to="." method="_on_area_second_sword_area_entered"]
+[connection signal="timeout" from="Couldown/SlashTimer" to="." method="_on_slash_timer_timeout"]
