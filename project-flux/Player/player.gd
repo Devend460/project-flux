@@ -34,7 +34,12 @@ func hurt(damage:int = 1) -> void:
 	if ($InvicibilityTimer.is_stopped()):
 		life -= damage
 		life_changed.emit(life)
+		
+		if life <= 0:
+			get_tree().reload_current_scene()
+		
 		$InvicibilityTimer.start()
+		$AnimationPlayer.play("invincibility_frame")
 
 
 func _on_invicibility_timer_timeout() -> void:
@@ -42,4 +47,6 @@ func _on_invicibility_timer_timeout() -> void:
 	if !cur_trap_overlap.is_empty():
 		#Pour l'instant pas de double degats donc on peut juste hurt
 		hurt()
+	else:
+		$AnimationPlayer.play("RESET")
 	pass # Replace with function body.
