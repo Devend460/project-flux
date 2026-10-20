@@ -69,6 +69,15 @@ func hurt_player()-> void:
 	player.hurt()
 	pass
 
+func hurt() -> void:
+	#Verifier si un attaque a deja fait des degats,
+	#Le faire du cote de l'explosion peut être ? donc juste faire une fonction hurt et l'attaque gere elle meme
+	health -= 1
+	print(health)
+	if health<= 0 :
+		queue_free()
+	
+	pass
 
 func _on_area_first_sword_area_entered(area: Area2D) -> void:
 	hurt_player()

@@ -164,7 +164,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -176,7 +176,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -337,6 +337,15 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1oq8"]
 size = Vector2(35, 100)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ly6j8"]
+size = Vector2(144, 67)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yrbmf"]
+size = Vector2(109, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5w50x"]
+size = Vector2(44, 26)
+
 [node name="Templar" type="Node2D" unique_id=2005835324]
 script = ExtResource("1_5lrpp")
 speed = 100.0
@@ -348,7 +357,7 @@ sprite_frames = SubResource("SpriteFrames_kon4d")
 [node name="BeehaveTree" type="Node" parent="." unique_id=1072440209 node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_qoath")
 actor_node_path = NodePath("..")
-blackboard = NodePath("@Node@18811")
+blackboard = NodePath("@Node@18809")
 actor = NodePath("..")
 metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 
@@ -394,6 +403,7 @@ libraries/ = SubResource("AnimationLibrary_s1oq8")
 [node name="Sword_Rotation" type="Node2D" parent="." unique_id=368354302]
 
 [node name="Rotation_FirstSword" type="Node2D" parent="Sword_Rotation" unique_id=2130675199]
+visible = false
 rotation = 1.5707964
 
 [node name="Position_FirstSword" type="Node2D" parent="Sword_Rotation/Rotation_FirstSword" unique_id=768213202]
@@ -412,6 +422,7 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_s1oq8")
 
 [node name="Rotation_SecondSword" type="Node2D" parent="Sword_Rotation" unique_id=511032223]
+visible = false
 rotation = -1.7453293
 
 [node name="Position_SecondSword" type="Node2D" parent="Sword_Rotation/Rotation_SecondSword" unique_id=288101667]
@@ -434,6 +445,30 @@ shape = SubResource("RectangleShape2D_s1oq8")
 [node name="SlashTimer" type="Timer" parent="Couldown" unique_id=2121893687]
 wait_time = 5.0
 one_shot = true
+
+[node name="Player_Attaque1" type="Area2D" parent="." unique_id=1929658722]
+collision_layer = 4
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Attaque1" unique_id=1344236225]
+position = Vector2(0, 38.5)
+shape = SubResource("RectangleShape2D_ly6j8")
+
+[node name="Player_Attaque2" type="Area2D" parent="." unique_id=183105814]
+collision_layer = 4
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Attaque2" unique_id=62946748]
+position = Vector2(0.5, -20)
+shape = SubResource("RectangleShape2D_yrbmf")
+
+[node name="Player_Attaque3" type="Area2D" parent="." unique_id=693849246]
+collision_layer = 4
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Attaque3" unique_id=396613310]
+position = Vector2(0, -58)
+shape = SubResource("RectangleShape2D_5w50x")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="BeehaveTree/SelectorComposite/CheckPortee/SequenceComposite/Slash_Attaque/AttaqueJoueur" method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="Sword_Rotation/Rotation_FirstSword/Position_FirstSword/Area_FirstSword" to="." method="_on_area_first_sword_area_entered"]

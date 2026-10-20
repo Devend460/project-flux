@@ -90,6 +90,7 @@ region_rect = Rect2(0, 0, 1200, 700)
 position = Vector2(513, 383)
 scale = Vector2(2, 2)
 speed = 175.0
+energy_time_cost = 4.0
 
 [node name="Wall" parent="." unique_id=2080642929 instance=ExtResource("2_sblpm")]
 position = Vector2(9, 318)
@@ -116,6 +117,7 @@ tile_set = SubResource("TileSet_ow1sv")
 
 [node name="TrapPatternDebug" parent="." unique_id=2089593109 node_paths=PackedStringArray("tileManager") instance=ExtResource("7_ow1sv")]
 tileManager = NodePath("../TileManager")
+trapToCreate = 1
 
 [node name="Templar" parent="." unique_id=2005835324 instance=ExtResource("8_75buv")]
-position = Vector2(713, 150)
+health = 3

@@ -1,18 +1,187 @@
 [gd_scene format=3 uid="uid://f80umyvat03g"]
 
 [ext_resource type="Script" uid="uid://d3ke7yukfwuy6" path="res://Player/player.gd" id="1_4ntmi"]
-[ext_resource type="Texture2D" uid="uid://clo2q0lawtq00" path="res://Image/Player/Body.png" id="2_btcbx"]
-[ext_resource type="Texture2D" uid="uid://li78ftn7bhhg" path="res://Image/Player/Head.png" id="3_gwnis"]
+[ext_resource type="Texture2D" uid="uid://drxv7s6ayyw8c" path="res://Image/Player/LeftArm.png" id="2_00tjw"]
+[ext_resource type="Texture2D" uid="uid://dw80jmeivh7fk" path="res://Image/Player/Torso.png" id="2_fhl08"]
+[ext_resource type="Script" uid="uid://rk8oqodadtj5" path="res://Player/left_arm.gd" id="3_apopc"]
+[ext_resource type="Script" uid="uid://cg2gomq87l1m2" path="res://Player/body.gd" id="3_fhl08"]
+[ext_resource type="Texture2D" uid="uid://c5a43gmc1tw16" path="res://Image/Player/New_Head.png" id="3_k53q1"]
+[ext_resource type="Script" uid="uid://dgt16ur0m3yh8" path="res://Player/torso.gd" id="3_vtle1"]
 [ext_resource type="Script" uid="uid://majrr554ks53" path="res://Player/head.gd" id="4_gwnis"]
+[ext_resource type="Texture2D" uid="uid://bew4wml8shncc" path="res://Image/Player/leg.png" id="4_vtle1"]
+[ext_resource type="Texture2D" uid="uid://cphhpqjv8p1nq" path="res://Image/Player/Head_eye_close.png" id="7_od3ui"]
+[ext_resource type="Texture2D" uid="uid://boi5vsbhf72bc" path="res://Image/Player/RightArm.png" id="10_x3vf3"]
+[ext_resource type="Script" uid="uid://j1r8illdndx6" path="res://Player/right_arm.gd" id="12_5htga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwnis"]
 size = Vector2(19, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o28un"]
+atlas = ExtResource("2_00tjw")
+region = Rect2(32, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7emwf"]
+atlas = ExtResource("2_00tjw")
+region = Rect2(64, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hshwv"]
+atlas = ExtResource("2_00tjw")
+region = Rect2(96, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpjlu"]
+atlas = ExtResource("2_00tjw")
+region = Rect2(128, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mwp6"]
+atlas = ExtResource("2_00tjw")
+region = Rect2(64, 48, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qemgg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o28un")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7emwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hshwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpjlu")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mwp6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apopc"]
+atlas = ExtResource("2_fhl08")
+region = Rect2(128, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5htga"]
+atlas = ExtResource("2_fhl08")
+region = Rect2(0, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5o4e"]
+atlas = ExtResource("2_fhl08")
+region = Rect2(32, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu6f8"]
+atlas = ExtResource("2_fhl08")
+region = Rect2(64, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkpta"]
+atlas = ExtResource("2_fhl08")
+region = Rect2(96, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfmf2"]
+atlas = ExtResource("2_fhl08")
+region = Rect2(128, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pisgm"]
+atlas = ExtResource("2_fhl08")
+region = Rect2(0, 144, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1ygp"]
+atlas = ExtResource("2_fhl08")
+region = Rect2(32, 144, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n471f"]
+atlas = ExtResource("2_fhl08")
+region = Rect2(96, 48, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fhl08"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apopc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5htga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5o4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu6f8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkpta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfmf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pisgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1ygp")
+}],
+"loop": false,
+"name": &"Charging",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n471f")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhl08"]
+atlas = ExtResource("4_vtle1")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtle1"]
+atlas = ExtResource("4_vtle1")
+region = Rect2(32, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od3ui"]
+atlas = ExtResource("4_vtle1")
+region = Rect2(64, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00tjw"]
+atlas = ExtResource("4_vtle1")
+region = Rect2(96, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3vf3"]
+atlas = ExtResource("4_vtle1")
+region = Rect2(96, 48, 32, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hvfyp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_btcbx")
+"texture": SubResource("AtlasTexture_fhl08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtle1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_od3ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00tjw")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3vf3")
 }],
 "loop": true,
 "name": &"default",
@@ -23,7 +192,63 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_gwnis")
+"texture": ExtResource("3_k53q1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_od3ui")
+}],
+"loop": true,
+"name": &"eye_close",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qemgg"]
+atlas = ExtResource("10_x3vf3")
+region = Rect2(32, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8viyr"]
+atlas = ExtResource("10_x3vf3")
+region = Rect2(64, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sm0op"]
+atlas = ExtResource("10_x3vf3")
+region = Rect2(96, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76lrf"]
+atlas = ExtResource("10_x3vf3")
+region = Rect2(128, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efx54"]
+atlas = ExtResource("10_x3vf3")
+region = Rect2(64, 48, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_755ss"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qemgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8viyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sm0op")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76lrf")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efx54")
 }],
 "loop": true,
 "name": &"default",
@@ -38,7 +263,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Body:visible")
+tracks/0/path = NodePath("Leg:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -59,13 +284,49 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Torso:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LeftArm:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RightArm:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_gwnis"]
 resource_name = "invincibility_frame"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Body:visible")
+tracks/0/path = NodePath("Leg:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -82,6 +343,42 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Torso:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.002660364, 0.102660365, 0.20266037, 0.30266038, 0.4, 0.5, 0.6, 0.7, 0.8, 1.0026604),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LeftArm:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.39733964, 0.49733964, 0.59733963, 0.69733965, 0.7973397, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RightArm:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.39733964, 0.49733964, 0.59733963, 0.69733965, 0.7973397, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [false, true, false, true, false, true, false, true, false, true]
@@ -101,13 +398,30 @@ speed = 100.0
 position = Vector2(-0.5, 3.5)
 shape = SubResource("RectangleShape2D_gwnis")
 
-[node name="Body" type="AnimatedSprite2D" parent="." unique_id=2004450193]
+[node name="LeftArm" type="AnimatedSprite2D" parent="." unique_id=1281665192]
+sprite_frames = SubResource("SpriteFrames_qemgg")
+script = ExtResource("3_apopc")
+
+[node name="Torso" type="AnimatedSprite2D" parent="." unique_id=942903894]
+sprite_frames = SubResource("SpriteFrames_fhl08")
+animation = &"Charging"
+script = ExtResource("3_vtle1")
+
+[node name="ChargingFrameTimer" type="Timer" parent="Torso" unique_id=107427107]
+one_shot = true
+
+[node name="Leg" type="AnimatedSprite2D" parent="." unique_id=2004450193]
 sprite_frames = SubResource("SpriteFrames_hvfyp")
+script = ExtResource("3_fhl08")
 
 [node name="Head" type="AnimatedSprite2D" parent="." unique_id=298445826]
-position = Vector2(-1, -11)
+position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_k53q1")
 script = ExtResource("4_gwnis")
+
+[node name="RightArm" type="AnimatedSprite2D" parent="." unique_id=1142607339]
+sprite_frames = SubResource("SpriteFrames_755ss")
+script = ExtResource("12_5htga")
 
 [node name="InvicibilityTimer" type="Timer" parent="." unique_id=222453738]
 one_shot = true
@@ -131,4 +445,10 @@ shape = SubResource("RectangleShape2D_k53q1")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1393636373]
 libraries/ = SubResource("AnimationLibrary_k53q1")
 
+[node name="EnergyTimer" type="Timer" parent="." unique_id=1176263986]
+wait_time = 8.0
+one_shot = true
+
+[connection signal="animation_finished" from="Torso" to="Torso" method="_on_animation_finished"]
+[connection signal="timeout" from="Torso/ChargingFrameTimer" to="Torso" method="_on_charging_frame_timer_timeout"]
 [connection signal="timeout" from="InvicibilityTimer" to="." method="_on_invicibility_timer_timeout"]

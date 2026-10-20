@@ -1,11 +1,12 @@
 extends Node2D
 
 var TrapDict = {
-	0:preload("res://Scene/Trap/TrapSwordPattern.tscn")
+	1:preload("res://Scene/Trap/TrapSwordPattern.tscn")
 }
 
 enum TrapName{
-	TrapSword = 0
+	None = 0,
+	TrapSword = 1
 }
 
 
@@ -15,6 +16,8 @@ enum TrapName{
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if trapToCreate == TrapName.None:
+		return
 	var cur_trap:TrapPatern = TrapDict.get(trapToCreate).instantiate()
 	if (cur_trap == null):
 		print("TRAP NULL")

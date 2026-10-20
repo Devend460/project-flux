@@ -22,9 +22,6 @@ func add_trap(trap:Trap) -> void:
 var ActualDanger = {}
 
 static func real_to_tile(real_coord:Vector2) -> Vector2:
-	print(real_coord)
-	print()
-	print(Vector2(floor(real_coord.x/32),floor(real_coord.y/32)))
 	return Vector2(floor(real_coord.x/TileSize),floor(real_coord.y/TileSize))
 
 #return the top left pixel coord of the tile
