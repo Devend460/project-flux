@@ -11,6 +11,9 @@
 [ext_resource type="Script" uid="uid://dcbj3eq01i0rl" path="res://Scene/Ennemi/follow_player.gd" id="8_vaddn"]
 [ext_resource type="Script" uid="uid://cidmp7ldqf6ff" path="res://Scene/Ennemi/temp_failed.gd" id="9_ly6j8"]
 [ext_resource type="Texture2D" uid="uid://bbi1ogc8ac8st" path="res://Image/Ennemi/Sword_training-4.png.png" id="9_s1oq8"]
+[ext_resource type="Script" uid="uid://bfg0mpqycboqk" path="res://Scene/Ennemi/couldown_leap.gd" id="10_5w50x"]
+[ext_resource type="Script" uid="uid://fxv6epxbtlwh" path="res://Scene/Ennemi/leap.gd" id="11_cvp3v"]
+[ext_resource type="Script" uid="uid://cv74jjdrwevpr" path="res://addons/beehave/nodes/leaves/action.gd" id="11_qkobf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s1oq8"]
 atlas = ExtResource("2_vaddn")
@@ -79,6 +82,46 @@ animations = [{
 [sub_resource type="Animation" id="Animation_vaddn"]
 resource_name = "Idle"
 loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_qkobf"]
+resource_name = "LeapSlash"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sword_Rotation/Rotation_FirstSword:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.3962634, -1.3962634015954636]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sword_Rotation/Rotation_FirstSword:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sword_Rotation/Rotation_FirstSword:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.25, 1.25)]
+}
 
 [sub_resource type="Animation" id="Animation_g4k8i"]
 length = 0.001
@@ -205,7 +248,7 @@ tracks/9/keys = {
 
 [sub_resource type="Animation" id="Animation_s1oq8"]
 resource_name = "SwordSlash"
-length = 2.5
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -261,7 +304,7 @@ tracks/4/path = NodePath("Sword_Rotation/Rotation_FirstSword/Position_FirstSword
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.4, 1.1, 1.9, 2.5),
+"times": PackedFloat32Array(0.4, 1.1, 1.9, 2.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [true, false, true, false]
@@ -273,7 +316,7 @@ tracks/5/path = NodePath("Sword_Rotation/Rotation_SecondSword/Position_SecondSwo
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(1.1, 1.7, 1.9, 2.5),
+"times": PackedFloat32Array(1.1, 1.7, 1.9, 2.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [true, false, true, false]
@@ -285,7 +328,7 @@ tracks/6/path = NodePath("Sword_Rotation/Rotation_SecondSword:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.5, 1.1, 1.7, 1.9, 2.5),
+"times": PackedFloat32Array(0.5, 1.1, 1.7, 1.9, 2.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [false, true, false, true, false]
@@ -297,7 +340,7 @@ tracks/7/path = NodePath("Sword_Rotation/Rotation_FirstSword:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 1.1, 1.9, 2.5),
+"times": PackedFloat32Array(0, 1.1, 1.9, 2.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [true, false, true, false]
@@ -330,6 +373,7 @@ tracks/9/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s1oq8"]
 _data = {
 &"Idle": SubResource("Animation_vaddn"),
+&"LeapSlash": SubResource("Animation_qkobf"),
 &"RESET": SubResource("Animation_g4k8i"),
 &"SwordSlash": SubResource("Animation_s1oq8")
 }
@@ -393,6 +437,22 @@ metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 script = ExtResource("9_ly6j8")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
+[node name="SequenceComposite" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceComposite" unique_id=2042433380]
+script = ExtResource("5_po7w5")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"
+
+[node name="Couldown_Leap" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceComposite/SequenceComposite" unique_id=1764450805]
+script = ExtResource("10_5w50x")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="Leap" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceComposite/SequenceComposite" unique_id=684552641]
+script = ExtResource("11_cvp3v")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="Leap_Attaque" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceComposite/SequenceComposite" unique_id=1602675439]
+script = ExtResource("11_qkobf")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
 [node name="FollowPlayer" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=186517694]
 script = ExtResource("8_vaddn")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
@@ -450,6 +510,11 @@ shape = SubResource("RectangleShape2D_s1oq8")
 wait_time = 5.0
 one_shot = true
 
+[node name="LeapTimer" type="Timer" parent="Couldown" unique_id=90629721]
+wait_time = 5.0
+
+[node name="WaitTimer" type="Timer" parent="Couldown" unique_id=461221446]
+
 [node name="Player_Attaque1" type="Area2D" parent="." unique_id=1929658722]
 collision_layer = 4
 collision_mask = 32
@@ -478,3 +543,4 @@ shape = SubResource("RectangleShape2D_5w50x")
 [connection signal="area_entered" from="Sword_Rotation/Rotation_FirstSword/Position_FirstSword/Area_FirstSword" to="." method="_on_area_first_sword_area_entered"]
 [connection signal="area_entered" from="Sword_Rotation/Rotation_SecondSword/Position_SecondSword/Area_SecondSword" to="." method="_on_area_second_sword_area_entered"]
 [connection signal="timeout" from="Couldown/SlashTimer" to="." method="_on_slash_timer_timeout"]
+[connection signal="timeout" from="Couldown/LeapTimer" to="." method="_on_leap_timer_timeout"]

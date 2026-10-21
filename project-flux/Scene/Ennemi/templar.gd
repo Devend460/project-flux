@@ -15,6 +15,8 @@ var speed:float = 300;
 
 var slash_attaque_ready:bool = true
 
+var leap_attaque_ready:bool = true
+
 var move_direction:Vector2 = Vector2.ZERO
 
 var cur_attack:Attack_Type = Attack_Type.NONE
@@ -87,3 +89,12 @@ func _on_area_first_sword_area_entered(area: Area2D) -> void:
 func _on_area_second_sword_area_entered(area: Area2D) -> void:
 	hurt_player()
 	pass # Replace with function body.
+
+
+func _on_leap_timer_timeout() -> void:
+	pass # Replace with function body.
+
+func start_leap_timer() ->void:
+	leap_attaque_ready = false
+	if $Couldown/LeapTimer.is_stopped():
+		$Couldown/LeapTimer.start()

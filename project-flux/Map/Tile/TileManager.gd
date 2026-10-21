@@ -3,7 +3,7 @@ extends Node2D
 
 static var TileSize:float = 64;
 static var ArenaWidth:int = 18;
-static var ArenaHeigh:int = 26;
+static var ArenaHeigh:int = 16;
 
 
 # Called when the node enters the scene tree for the first time.

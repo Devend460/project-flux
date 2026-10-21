@@ -1,12 +1,14 @@
 extends Node2D
 
 var TrapDict = {
-	1:preload("res://Scene/Trap/TrapSwordPattern.tscn")
+	1:preload("res://Scene/Trap/TrapSwordPattern.tscn"),
+	2:preload("res://Scene/Trap/blanc_tile_patern_debug.tscn")
 }
 
 enum TrapName{
 	None = 0,
-	TrapSword = 1
+	TrapSword = 1,
+	BlancDebug = 2
 }
 
 

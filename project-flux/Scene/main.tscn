@@ -4,73 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://f80umyvat03g" path="res://Player/player.tscn" id="1_f6udf"]
 [ext_resource type="PackedScene" uid="uid://6rb0e8nkap7d" path="res://Map/Element/Wall.tscn" id="2_sblpm"]
 [ext_resource type="PackedScene" uid="uid://c544ib6hw24sb" path="res://Map/Tile/TileManager.tscn" id="3_2wwxx"]
-[ext_resource type="Texture2D" uid="uid://q41olenir0ih" path="res://Image/Tile/Floor_temp.png" id="4_3amdw"]
+[ext_resource type="Texture2D" uid="uid://dl6k6rvs2hds8" path="res://Image/Tile/Wall.png" id="3_ow1sv"]
 [ext_resource type="PackedScene" uid="uid://caa36h0xxkvti" path="res://Scene/UI/inGameUI.tscn" id="7_75buv"]
 [ext_resource type="PackedScene" uid="uid://cbb88hbb44o61" path="res://Scene/Trap/TrapPatternDebug.tscn" id="7_ow1sv"]
 [ext_resource type="PackedScene" uid="uid://dogxi3wxf25sb" path="res://Scene/Ennemi/Templar.tscn" id="8_75buv"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1xcnr"]
-texture = ExtResource("4_3amdw")
-texture_region_size = Vector2i(120, 128)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_ow1sv"]
-sources/0 = SubResource("TileSetAtlasSource_1xcnr")
 
 [node name="Main" type="Node2D" unique_id=775579045]
 
@@ -81,43 +18,50 @@ player_character = NodePath("../../Player")
 
 [node name="floor" type="Sprite2D" parent="." unique_id=1060328449]
 texture_repeat = 2
-position = Vector2(585, 321)
+position = Vector2(583, 475)
 texture = ExtResource("1_3amdw")
 region_enabled = true
-region_rect = Rect2(0, 0, 1200, 700)
+region_rect = Rect2(0, 0, 1200, 1100)
+
+[node name="TopWall" type="Sprite2D" parent="." unique_id=1521865143]
+texture_repeat = 2
+position = Vector2(576, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ow1sv")
+offset = Vector2(0, -16)
+region_enabled = true
+region_rect = Rect2(0, 0, 576, 32)
+
+[node name="TileManager" parent="." unique_id=1458340226 instance=ExtResource("3_2wwxx")]
+
+[node name="TrapPatternDebug" parent="." unique_id=2089593109 node_paths=PackedStringArray("tileManager") instance=ExtResource("7_ow1sv")]
+tileManager = NodePath("../TileManager")
+trapToCreate = 1
 
 [node name="Player" parent="." unique_id=2078212255 groups=["Player"] instance=ExtResource("1_f6udf")]
-position = Vector2(513, 383)
+position = Vector2(591, 146)
 scale = Vector2(2, 2)
 speed = 175.0
 energy_time_cost = 4.0
 
 [node name="Wall" parent="." unique_id=2080642929 instance=ExtResource("2_sblpm")]
-position = Vector2(9, 318)
-scale = Vector2(1, 38.64)
+position = Vector2(9, 500)
+scale = Vector2(1, 60)
 
 [node name="Wall2" parent="." unique_id=1035420873 instance=ExtResource("2_sblpm")]
-position = Vector2(1140, 318)
-scale = Vector2(1, 38.64)
+position = Vector2(1162, 500)
+scale = Vector2(1, 60)
 
 [node name="Wall3" parent="." unique_id=1431620671 instance=ExtResource("2_sblpm")]
-position = Vector2(576, 9)
+position = Vector2(593, -10)
 rotation = 1.5707964
 scale = Vector2(1, 60.479996)
 
 [node name="Wall4" parent="." unique_id=1883536228 instance=ExtResource("2_sblpm")]
-position = Vector2(562, 634.99994)
+position = Vector2(582, 1035)
 rotation = 1.5707964
 scale = Vector2(1, 60.479996)
 
-[node name="TileManager" parent="." unique_id=1458340226 instance=ExtResource("3_2wwxx")]
-
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=562606408]
-tile_set = SubResource("TileSet_ow1sv")
-
-[node name="TrapPatternDebug" parent="." unique_id=2089593109 node_paths=PackedStringArray("tileManager") instance=ExtResource("7_ow1sv")]
-tileManager = NodePath("../TileManager")
-
 [node name="Templar" parent="." unique_id=2005835324 instance=ExtResource("8_75buv")]
-position = Vector2(135, 99)
-scale = Vector2(0.8, 0.8)
+position = Vector2(583, 745)
+health = 5

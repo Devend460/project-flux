@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dqr5e4cjvxot5"]
+
+[ext_resource type="Script" uid="uid://pcgy8240f27t" path="res://Scene/Trap/IndividualTrap/debug_tile_visuel.gd" id="1_586o3"]
+[ext_resource type="Texture2D" uid="uid://c3fxdnmr1fbma" path="res://Image/Tile/blanc64.png" id="2_586o3"]
+
+[node name="DebugTileVisuel" type="Node2D" unique_id=2001185573]
+script = ExtResource("1_586o3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1181499238]
+position = Vector2(32, 32)
+texture = ExtResource("2_586o3")

@@ -6,5 +6,6 @@
 script = ExtResource("1_1cwgd")
 
 [node name="Timer" type="Timer" parent="." unique_id=316793011]
+wait_time = 0.5
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

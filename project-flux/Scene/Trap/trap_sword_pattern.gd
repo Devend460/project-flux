@@ -25,7 +25,7 @@ func spawn_col(x:int)->void:
 			var cur_trap:TrapSword = SwordTrap.instantiate()
 			cur_trap.global_position = TileManager.tile_to_realtl(Vector2(x,y))
 			tileManager.add_trap(cur_trap)
-	if x>=TileManager.ArenaWidth:
+	if x>=TileManager.ArenaWidth-1:
 		queue_free()
 	cur_col += 1
 	pass
