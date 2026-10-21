@@ -117,7 +117,7 @@ tile_set = SubResource("TileSet_ow1sv")
 
 [node name="TrapPatternDebug" parent="." unique_id=2089593109 node_paths=PackedStringArray("tileManager") instance=ExtResource("7_ow1sv")]
 tileManager = NodePath("../TileManager")
-trapToCreate = 1
 
 [node name="Templar" parent="." unique_id=2005835324 instance=ExtResource("8_75buv")]
-health = 3
+position = Vector2(135, 99)
+scale = Vector2(0.8, 0.8)

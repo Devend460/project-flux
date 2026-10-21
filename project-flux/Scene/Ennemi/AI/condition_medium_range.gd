@@ -16,7 +16,7 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 	var player:Player = blackboard.get_value("target")
 	
 	var distance = enemie.global_position.distance_to(player.global_position)
-	if distance <= 200.0:
+	if distance <= 100.0:
 		return SUCCESS
 		
 	return FAILURE

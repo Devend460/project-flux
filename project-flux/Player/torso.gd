@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 
 func start_charging(time_cost:float) -> void:
 
-	speed_scale = 8/time_cost
+	speed_scale = 7/time_cost
 	play("Charging")
 
 	#$ChargingFrameTimer.wait_time = time_cost/9.0

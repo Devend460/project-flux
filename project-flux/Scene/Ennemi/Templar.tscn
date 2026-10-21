@@ -140,7 +140,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -152,7 +152,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -205,7 +205,7 @@ tracks/9/keys = {
 
 [sub_resource type="Animation" id="Animation_s1oq8"]
 resource_name = "SwordSlash"
-length = 2.0
+length = 2.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -213,10 +213,10 @@ tracks/0/path = NodePath("Sword_Rotation/Rotation_FirstSword:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.5, 1.4, 2),
-"transitions": PackedFloat32Array(0.3, 0.3, 0.5, 0.5),
+"times": PackedFloat32Array(0, 0.6, 1, 1.9, 2.5),
+"transitions": PackedFloat32Array(0.3, 0.3, 0.3, 0.5, 0.5),
 "update": 0,
-"values": [1.3962634015954636, -1.3962634015954636, 2.0943951023931953, -2.0943951023931953]
+"values": [1.3962634015954636, 1.3962634015954636, -1.3962634015954636, 2.0943951023931953, -2.0943951023931953]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -225,7 +225,7 @@ tracks/1/path = NodePath("Sword_Rotation/Rotation_SecondSword:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.7, 1.2, 1.4, 2),
+"times": PackedFloat32Array(1.2, 1.7, 1.9, 2.5),
 "transitions": PackedFloat32Array(0.4, 0.4, 0.5, 0.5),
 "update": 0,
 "values": [-1.7453293, 1.7453292519943295, -2.0943951023931953, 2.0943951023931953]
@@ -261,7 +261,7 @@ tracks/4/path = NodePath("Sword_Rotation/Rotation_FirstSword/Position_FirstSword
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.4, 2),
+"times": PackedFloat32Array(0.4, 1.1, 1.9, 2.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [true, false, true, false]
@@ -273,7 +273,7 @@ tracks/5/path = NodePath("Sword_Rotation/Rotation_SecondSword/Position_SecondSwo
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.6, 1.2, 1.4, 2),
+"times": PackedFloat32Array(1.1, 1.7, 1.9, 2.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [true, false, true, false]
@@ -285,7 +285,7 @@ tracks/6/path = NodePath("Sword_Rotation/Rotation_SecondSword:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.2, 1.4, 2),
+"times": PackedFloat32Array(0.5, 1.1, 1.7, 1.9, 2.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [false, true, false, true, false]
@@ -297,7 +297,7 @@ tracks/7/path = NodePath("Sword_Rotation/Rotation_FirstSword:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.4, 2),
+"times": PackedFloat32Array(0, 1.1, 1.9, 2.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [true, false, true, false]
@@ -309,10 +309,10 @@ tracks/8/path = NodePath("Sword_Rotation/Rotation_FirstSword:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.4, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 1.1, 1.9, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(2, 2), Vector2(2, 2)]
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1.5, 1.5)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -321,10 +321,10 @@ tracks/9/path = NodePath("Sword_Rotation/Rotation_SecondSword:scale")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0.6, 1.2, 1.4, 2),
+"times": PackedFloat32Array(1.1, 1.7, 1.9, 2.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(2, 2), Vector2(2, 2)]
+"values": [Vector2(1.25, 1.25), Vector2(1.25, 1.25), Vector2(1.5, 1.5), Vector2(1.5, 1.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s1oq8"]
@@ -357,7 +357,7 @@ sprite_frames = SubResource("SpriteFrames_kon4d")
 [node name="BeehaveTree" type="Node" parent="." unique_id=1072440209 node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_qoath")
 actor_node_path = NodePath("..")
-blackboard = NodePath("@Node@18809")
+blackboard = NodePath("@Node@18811")
 actor = NodePath("..")
 metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 
@@ -417,6 +417,8 @@ texture = ExtResource("9_s1oq8")
 scale = Vector2(1.0000001, 1.0000001)
 collision_layer = 16
 collision_mask = 2
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword_Rotation/Rotation_FirstSword/Position_FirstSword/Area_FirstSword" unique_id=1825617327]
 shape = SubResource("RectangleShape2D_s1oq8")
@@ -436,6 +438,8 @@ texture = ExtResource("9_s1oq8")
 scale = Vector2(1.0000001, 1.0000001)
 collision_layer = 16
 collision_mask = 2
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword_Rotation/Rotation_SecondSword/Position_SecondSword/Area_SecondSword" unique_id=1432857995]
 shape = SubResource("RectangleShape2D_s1oq8")

@@ -9,7 +9,7 @@ var has_energy = true
 
 @export var energy_time_cost:float = 8.0
 
-@export var attack_range:float = 100
+@export var attack_range:float = 50
 
 @export var attack_impulse_force:float = 500
 
@@ -85,10 +85,10 @@ func _physics_process(delta: float) -> void:
 
 func do_walking(direction:Vector2)->Vector2:
 	if direction != Vector2(0,0):
-		if $Leg.animation == "default":
+		if $Body/Leg.animation == "default":
 			body_animation_walking()
 	else:
-		if $Leg.animation == "Walking":
+		if $Body/Leg.animation == "Walking":
 			body_animation_default()
 
 	if direction.x >0:
@@ -106,7 +106,9 @@ func hurt(damage:int = 1) -> void:
 			get_tree().reload_current_scene()
 		
 		$InvicibilityTimer.start()
+		debug_reset_invicibility_frame()
 		$AnimationPlayer.play("invincibility_frame")
+		print("animation play")
 
 
 func _on_invicibility_timer_timeout() -> void:
@@ -133,6 +135,17 @@ func start_explosion_canalisation(explosion_global_position:Vector2) -> void:
 	inst_explosion.global_position = attack_location
 	
 	#Animation des bras du player
+	$Body/LeftArm.visible = false
+	$Body/RightArm.visible = false
+	$Body/LeftArmCanalisation.visible = true
+	$Body/RightArmCanalisation.visible = true
+	$Body/RightArmCanalisation.look_at_explosion(attack_location)
+	$Body/LeftArmCanalisation.look_at_explosion(attack_location)
+	
+	if (explosion_global_position<global_position):
+		body_look_left()
+	else:
+		body_look_right()
 	
 	#Freeze du joueur
 	array_status_effect.append(StatusEffect.Canalisation)
@@ -150,8 +163,12 @@ func canalisation_finished() -> void:
 	add_impulse(direction*attack_impulse_force, attack_impulse_decay)
 	
 	$EnergyTimer.start(energy_time_cost)
-	$Torso.start_charging(energy_time_cost)
+	$Body/Torso.start_charging(energy_time_cost)
 	body_animation_endcanalisation()
+	$Body/LeftArm.visible = true
+	$Body/RightArm.visible = true
+	$Body/LeftArmCanalisation.visible = false
+	$Body/RightArmCanalisation.visible = false
 	pass
 
 func add_impulse(direction:Vector2,decay_rate:float) -> void:
@@ -160,36 +177,56 @@ func add_impulse(direction:Vector2,decay_rate:float) -> void:
 
 
 func body_look_right() -> void:
-	$Torso.look_right()
-	$Leg.look_right()
-	$LeftArm.look_right()
-	$RightArm.look_right()
+	$Body/Torso.look_right()
+	$Body/Leg.look_right()
+	$Body/LeftArm.look_right()
+	$Body/RightArm.look_right()
+	#$Body/LeftArmCanalisation.look_right()
+	#$Body/RightArmCanalisation.look_right()
 	pass
 
 func body_look_left() -> void:
-	$Torso.look_left()
-	$Leg.look_left()
-	$LeftArm.look_left()
-	$RightArm.look_left()
+	$Body/Torso.look_left()
+	$Body/Leg.look_left()
+	$Body/LeftArm.look_left()
+	$Body/RightArm.look_left()
+	#$Body/LeftArmCanalisation.look_left()
+	#$Body/RightArmCanalisation.look_left()
 	pass
 
 func body_animation_canalisation() -> void:
 	body_animation_default()
-	$Head.do_canalisation_animation()
+	$Body/Head.do_canalisation_animation()
 	#Freeze la tete (suis pus la souris)
 
 func body_animation_endcanalisation() -> void:
-	$Head.end_canalisation_animation()
+	$Body/Head.end_canalisation_animation()
 	#Unfreeze
 
 func body_animation_walking() -> void:
-	$Leg.play("Walking")
-	$LeftArm.play("Walking")
-	$RightArm.play("Walking")
+	$Body/Leg.play("Walking")
+	$Body/LeftArm.play("Walking")
+	$Body/RightArm.play("Walking")
 	pass
 
 func body_animation_default() -> void:
-	$Leg.play("default")
-	$LeftArm.play("default")
-	$RightArm.play("default")
+	$Body/Leg.play("default")
+	$Body/LeftArm.play("default")
+	$Body/RightArm.play("default")
 	pass
+
+func debug_reset_invicibility_frame() -> void:
+	return
+	$Body/Leg.visible = true
+	$Body/LeftArm.visible = true
+	$Body/RightArm.visible = true
+	$Body/Torso.visible = true
+	$Body/Head.visible = true
+	$Body/LeftArmCanalisation.visible = true
+	$Body/RightArmCanalisation.visible = true
+
+func is_canalising() -> bool:
+	var canalisation_index = array_status_effect.find(StatusEffect.Canalisation)
+	if (canalisation_index != -1):
+		return true
+	return false
