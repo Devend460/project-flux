@@ -17,6 +17,7 @@
 player_character = NodePath("../../Player")
 
 [node name="floor" type="Sprite2D" parent="." unique_id=1060328449]
+z_index = -10
 texture_repeat = 2
 position = Vector2(583, 475)
 texture = ExtResource("1_3amdw")
@@ -36,12 +37,11 @@ region_rect = Rect2(0, 0, 576, 32)
 
 [node name="TrapPatternDebug" parent="." unique_id=2089593109 node_paths=PackedStringArray("tileManager") instance=ExtResource("7_ow1sv")]
 tileManager = NodePath("../TileManager")
-trapToCreate = 1
 
 [node name="Player" parent="." unique_id=2078212255 groups=["Player"] instance=ExtResource("1_f6udf")]
 position = Vector2(591, 146)
 scale = Vector2(2, 2)
-speed = 175.0
+speed = 200.0
 energy_time_cost = 4.0
 
 [node name="Wall" parent="." unique_id=2080642929 instance=ExtResource("2_sblpm")]
@@ -63,5 +63,4 @@ rotation = 1.5707964
 scale = Vector2(1, 60.479996)
 
 [node name="Templar" parent="." unique_id=2005835324 instance=ExtResource("8_75buv")]
-position = Vector2(583, 745)
-health = 5
+position = Vector2(576, 501)

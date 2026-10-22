@@ -3,17 +3,102 @@
 [ext_resource type="Script" uid="uid://bch3ld4h0xrle" path="res://Scene/Ennemi/templar.gd" id="1_5lrpp"]
 [ext_resource type="Script" uid="uid://bb0t2ovl7wifo" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_qoath"]
 [ext_resource type="Texture2D" uid="uid://bgx06qbwbdv5l" path="res://Image/Ennemi/Templar_down.png" id="2_vaddn"]
+[ext_resource type="Texture2D" uid="uid://cvkmyusemo5kt" path="res://Image/Ennemi/Templar_eletricAttack.png" id="2_vktyl"]
 [ext_resource type="Script" uid="uid://bbgv7rx848lwo" path="res://Scene/Ennemi/AI/condition_medium_range.gd" id="4_0nd5p"]
 [ext_resource type="Script" uid="uid://8hn4kne15ac5" path="res://addons/beehave/nodes/composites/selector.gd" id="4_bkwx7"]
 [ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="5_po7w5"]
+[ext_resource type="Script" uid="uid://mqbgibkn7oj1" path="res://Scene/Ennemi/portee_small.gd" id="6_h8ela"]
+[ext_resource type="Script" uid="uid://dhk3bhwa70pjv" path="res://Scene/Ennemi/couldown_eletric_field.gd" id="7_e3y73"]
 [ext_resource type="Script" uid="uid://b5k0f630bbhos" path="res://Scene/Ennemi/couldown_slash.gd" id="7_g4k8i"]
+[ext_resource type="Script" uid="uid://dvnmhlldp23hg" path="res://addons/beehave/nodes/composites/selector_random.gd" id="7_psk0h"]
 [ext_resource type="Script" uid="uid://coxeekff0lwvk" path="res://Scene/Ennemi/attaque_joueur.gd" id="7_vaddn"]
+[ext_resource type="Script" uid="uid://wo0xwiicwlsm" path="res://Scene/Ennemi/attaque_electric_field.gd" id="8_e3y73"]
 [ext_resource type="Script" uid="uid://dcbj3eq01i0rl" path="res://Scene/Ennemi/follow_player.gd" id="8_vaddn"]
-[ext_resource type="Script" uid="uid://cidmp7ldqf6ff" path="res://Scene/Ennemi/temp_failed.gd" id="9_ly6j8"]
 [ext_resource type="Texture2D" uid="uid://bbi1ogc8ac8st" path="res://Image/Ennemi/Sword_training-4.png.png" id="9_s1oq8"]
 [ext_resource type="Script" uid="uid://bfg0mpqycboqk" path="res://Scene/Ennemi/couldown_leap.gd" id="10_5w50x"]
+[ext_resource type="Script" uid="uid://b3afdudue1i5k" path="res://Scene/Ennemi/templar_sit.gd" id="10_slfph"]
 [ext_resource type="Script" uid="uid://fxv6epxbtlwh" path="res://Scene/Ennemi/leap.gd" id="11_cvp3v"]
-[ext_resource type="Script" uid="uid://cv74jjdrwevpr" path="res://addons/beehave/nodes/leaves/action.gd" id="11_qkobf"]
+[ext_resource type="Script" uid="uid://dmqiunkoawec7" path="res://Scene/Ennemi/slect_target.gd" id="11_suvr1"]
+[ext_resource type="Script" uid="uid://cm5c672tqdf4y" path="res://Scene/Ennemi/templar_get_up.gd" id="12_me451"]
+[ext_resource type="Script" uid="uid://cunl77hqu627l" path="res://Scene/Ennemi/wait.gd" id="12_qkobf"]
+[ext_resource type="Script" uid="uid://ba0tp86x2wsv0" path="res://Scene/Ennemi/wait_leap_animation.gd" id="14_suvr1"]
+[ext_resource type="Texture2D" uid="uid://dv8n3ctc6lna8" path="res://Image/Ennemi/RedSword.png" id="16_suvr1"]
+[ext_resource type="Texture2D" uid="uid://b7jxeej754uhl" path="res://Image/Ennemi/EletricField.png" id="22_ydijo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vktyl"]
+radius = 140.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydijo"]
+atlas = ExtResource("2_vktyl")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slfph"]
+atlas = ExtResource("2_vktyl")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_me451"]
+atlas = ExtResource("2_vktyl")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63tjv"]
+atlas = ExtResource("2_vktyl")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5pkm"]
+atlas = ExtResource("2_vktyl")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8o2up"]
+atlas = ExtResource("2_vktyl")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd1xn"]
+atlas = ExtResource("2_vktyl")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_deire"]
+atlas = ExtResource("2_vktyl")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4akfe"]
+atlas = ExtResource("2_vktyl")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vktyl"]
+atlas = ExtResource("2_vktyl")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_685ur"]
+atlas = ExtResource("2_vktyl")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ax6q"]
+atlas = ExtResource("2_vktyl")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c7w3"]
+atlas = ExtResource("2_vktyl")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lk2bg"]
+atlas = ExtResource("2_vktyl")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_issd6"]
+atlas = ExtResource("2_vktyl")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbh22"]
+atlas = ExtResource("2_vktyl")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bum3x"]
+atlas = ExtResource("2_vktyl")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbbt8"]
+atlas = ExtResource("2_vktyl")
+region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s1oq8"]
 atlas = ExtResource("2_vaddn")
@@ -51,6 +136,70 @@ region = Rect2(96, 192, 96, 96)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ydijo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slfph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_me451")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63tjv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5pkm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8o2up")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hd1xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_deire")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4akfe")
+}],
+"loop": false,
+"name": &"Charging_electric",
+"speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vktyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_685ur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ax6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c7w3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lk2bg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_issd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbh22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bum3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbbt8")
+}],
+"loop": false,
+"name": &"Reset_electric",
+"speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_s1oq8")
 }, {
 "duration": 1.0,
@@ -79,33 +228,61 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="Animation" id="Animation_e3y73"]
+resource_name = "ElectricField"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eletric_field:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Eletric_field/Area2D:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="Animation" id="Animation_vaddn"]
 resource_name = "Idle"
 loop_mode = 1
 
 [sub_resource type="Animation" id="Animation_qkobf"]
 resource_name = "LeapSlash"
-length = 3.0
+length = 2.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sword_Rotation/Rotation_FirstSword:rotation")
+tracks/0/path = NodePath("Sword_Rotation/Rotation_SecondSword:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1, 2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.75, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [1.3962634, -1.3962634015954636]
+"values": [-1.2217304763960306, -1.2217304763960306, 1.2217304763960306]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sword_Rotation/Rotation_FirstSword:visible")
+tracks/1/path = NodePath("Sword_Rotation/Rotation_SecondSword:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.5),
+"times": PackedFloat32Array(0, 1.75),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -113,7 +290,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sword_Rotation/Rotation_FirstSword:scale")
+tracks/2/path = NodePath("Sword_Rotation/Rotation_SecondSword:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -121,6 +298,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1.25, 1.25)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sword_Rotation/Rotation_SecondSword/Position_SecondSword/Area_SecondSword:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_g4k8i"]
@@ -244,6 +433,30 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Eletric_field:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Eletric_field/Area2D:monitoring")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_s1oq8"]
@@ -372,6 +585,7 @@ tracks/9/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s1oq8"]
 _data = {
+&"ElectricField": SubResource("Animation_e3y73"),
 &"Idle": SubResource("Animation_vaddn"),
 &"LeapSlash": SubResource("Animation_qkobf"),
 &"RESET": SubResource("Animation_g4k8i"),
@@ -379,7 +593,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1oq8"]
-size = Vector2(35, 100)
+size = Vector2(19, 95)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ly6j8"]
 size = Vector2(144, 67)
@@ -394,9 +608,27 @@ size = Vector2(44, 26)
 script = ExtResource("1_5lrpp")
 speed = 100.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1253169841]
+[node name="Eletric_field" type="Node2D" parent="." unique_id=1366997930]
+visible = false
+z_index = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="Eletric_field" unique_id=1120000173]
+scale = Vector2(9, 9)
+texture = ExtResource("22_ydijo")
+
+[node name="Area2D" type="Area2D" parent="Eletric_field" unique_id=962369255]
+collision_layer = 16
+collision_mask = 2
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Eletric_field/Area2D" unique_id=1312157544]
+shape = SubResource("CircleShape2D_vktyl")
+
+[node name="TemplarSprite" type="AnimatedSprite2D" parent="." unique_id=1253169841]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_kon4d")
+animation = &"Reset_electric"
 
 [node name="BeehaveTree" type="Node" parent="." unique_id=1072440209 node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_qoath")
@@ -409,48 +641,83 @@ metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 script = ExtResource("4_bkwx7")
 metadata/_custom_type_script = "uid://8hn4kne15ac5"
 
-[node name="CheckPortee" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=825489795]
-script = ExtResource("5_po7w5")
-metadata/_custom_type_script = "uid://cg016dbe7gs1x"
-
-[node name="PorteeMoyenne" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee" unique_id=1316803047]
-script = ExtResource("4_0nd5p")
-metadata/_custom_type_script = "uid://cbnbvj8prv63i"
-
-[node name="SequenceComposite" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee" unique_id=1288291324]
+[node name="CheckPortee" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=2003280696]
 script = ExtResource("4_bkwx7")
 metadata/_custom_type_script = "uid://8hn4kne15ac5"
 
-[node name="Slash_Attaque" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceComposite" unique_id=1203345764]
+[node name="SequenceSmall" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee" unique_id=1213042053]
 script = ExtResource("5_po7w5")
 metadata/_custom_type_script = "uid://cg016dbe7gs1x"
 
-[node name="Couldown_Slash" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceComposite/Slash_Attaque" unique_id=627689350]
-script = ExtResource("7_g4k8i")
+[node name="PorteeSmall" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceSmall" unique_id=617500536]
+script = ExtResource("6_h8ela")
 metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 
-[node name="AttaqueJoueur" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceComposite/Slash_Attaque" unique_id=665323982]
-script = ExtResource("7_vaddn")
+[node name="CouldownEletricField" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceSmall" unique_id=1562086674]
+script = ExtResource("7_e3y73")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="Templar_Sit" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceSmall" unique_id=2021398590]
+script = ExtResource("10_slfph")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
-[node name="Temp_Failed" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceComposite" unique_id=575234161]
-script = ExtResource("9_ly6j8")
+[node name="Attaque_ElectricField" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceSmall" unique_id=1031896935]
+script = ExtResource("8_e3y73")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
-[node name="SequenceComposite" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceComposite" unique_id=2042433380]
+[node name="Templar_getUp" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceSmall" unique_id=1976104596]
+script = ExtResource("12_me451")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="SequenceMoyenne" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee" unique_id=2122433778]
 script = ExtResource("5_po7w5")
 metadata/_custom_type_script = "uid://cg016dbe7gs1x"
 
-[node name="Couldown_Leap" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceComposite/SequenceComposite" unique_id=1764450805]
+[node name="PorteeMoyenne" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceMoyenne" unique_id=1316803047]
+script = ExtResource("4_0nd5p")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="SelectorMoyenne" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceMoyenne" unique_id=1415350363]
+script = ExtResource("7_psk0h")
+metadata/_custom_type_script = "uid://dvnmhlldp23hg"
+
+[node name="Leap_Attaque" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceMoyenne/SelectorMoyenne" unique_id=2042433380]
+script = ExtResource("5_po7w5")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"
+
+[node name="Couldown_Leap" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceMoyenne/SelectorMoyenne/Leap_Attaque" unique_id=1764450805]
 script = ExtResource("10_5w50x")
 metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 
-[node name="Leap" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceComposite/SequenceComposite" unique_id=684552641]
-script = ExtResource("11_cvp3v")
+[node name="SelectTarget" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceMoyenne/SelectorMoyenne/Leap_Attaque" unique_id=1193408148]
+script = ExtResource("11_suvr1")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
-[node name="Leap_Attaque" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceComposite/SequenceComposite" unique_id=1602675439]
-script = ExtResource("11_qkobf")
+[node name="Wait" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceMoyenne/SelectorMoyenne/Leap_Attaque" unique_id=1311186719]
+script = ExtResource("12_qkobf")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="Leap" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceMoyenne/SelectorMoyenne/Leap_Attaque" unique_id=684552641]
+script = ExtResource("11_cvp3v")
+leap_speed = 600.0
+leap_min_range = 100.0
+leap_max_range = 500.0
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="WaitLeapAnimation" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceMoyenne/SelectorMoyenne/Leap_Attaque" unique_id=1637895194]
+script = ExtResource("14_suvr1")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="Slash_Attaque" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceMoyenne/SelectorMoyenne" unique_id=1203345764]
+script = ExtResource("5_po7w5")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"
+
+[node name="Couldown_Slash" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceMoyenne/SelectorMoyenne/Slash_Attaque" unique_id=627689350]
+script = ExtResource("7_g4k8i")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="AttaqueJoueur" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceMoyenne/SelectorMoyenne/Slash_Attaque" unique_id=665323982]
+script = ExtResource("7_vaddn")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="FollowPlayer" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=186517694]
@@ -492,7 +759,7 @@ position = Vector2(0, -130)
 
 [node name="Second_Sword" type="Sprite2D" parent="Sword_Rotation/Rotation_SecondSword/Position_SecondSword" unique_id=739387462]
 scale = Vector2(2.0000002, 2.0000002)
-texture = ExtResource("9_s1oq8")
+texture = ExtResource("16_suvr1")
 
 [node name="Area_SecondSword" type="Area2D" parent="Sword_Rotation/Rotation_SecondSword/Position_SecondSword" unique_id=873455967]
 scale = Vector2(1.0000001, 1.0000001)
@@ -502,6 +769,8 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword_Rotation/Rotation_SecondSword/Position_SecondSword/Area_SecondSword" unique_id=1432857995]
+position = Vector2(0.06879616, 0.12434387)
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_s1oq8")
 
 [node name="Couldown" type="Node2D" parent="." unique_id=523879616]
@@ -512,8 +781,15 @@ one_shot = true
 
 [node name="LeapTimer" type="Timer" parent="Couldown" unique_id=90629721]
 wait_time = 5.0
+one_shot = true
 
-[node name="WaitTimer" type="Timer" parent="Couldown" unique_id=461221446]
+[node name="InitialLeapTimer" type="Timer" parent="Couldown" unique_id=461221446]
+wait_time = 0.75
+one_shot = true
+
+[node name="ElectricField" type="Timer" parent="Couldown" unique_id=1487762483]
+wait_time = 3.0
+one_shot = true
 
 [node name="Player_Attaque1" type="Area2D" parent="." unique_id=1929658722]
 collision_layer = 4
@@ -539,8 +815,15 @@ collision_mask = 32
 position = Vector2(0, -58)
 shape = SubResource("RectangleShape2D_5w50x")
 
-[connection signal="animation_finished" from="AnimationPlayer" to="BeehaveTree/SelectorComposite/CheckPortee/SequenceComposite/Slash_Attaque/AttaqueJoueur" method="_on_animation_player_animation_finished"]
+[connection signal="area_entered" from="Eletric_field/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="animation_finished" from="TemplarSprite" to="BeehaveTree/SelectorComposite/CheckPortee/SequenceSmall/Templar_Sit" method="_on_templar_sprite_animation_finished"]
+[connection signal="animation_finished" from="TemplarSprite" to="BeehaveTree/SelectorComposite/CheckPortee/SequenceSmall/Templar_getUp" method="_on_templar_sprite_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="BeehaveTree/SelectorComposite/CheckPortee/SequenceMoyenne/SelectorMoyenne/Leap_Attaque/WaitLeapAnimation" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="BeehaveTree/SelectorComposite/CheckPortee/SequenceMoyenne/SelectorMoyenne/Slash_Attaque/AttaqueJoueur" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="BeehaveTree/SelectorComposite/CheckPortee/SequenceSmall/Attaque_ElectricField" method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="Sword_Rotation/Rotation_FirstSword/Position_FirstSword/Area_FirstSword" to="." method="_on_area_first_sword_area_entered"]
 [connection signal="area_entered" from="Sword_Rotation/Rotation_SecondSword/Position_SecondSword/Area_SecondSword" to="." method="_on_area_second_sword_area_entered"]
 [connection signal="timeout" from="Couldown/SlashTimer" to="." method="_on_slash_timer_timeout"]
 [connection signal="timeout" from="Couldown/LeapTimer" to="." method="_on_leap_timer_timeout"]
+[connection signal="timeout" from="Couldown/InitialLeapTimer" to="." method="_on_initial_leap_timer_timeout"]
+[connection signal="timeout" from="Couldown/ElectricField" to="." method="_on_electric_field_timeout"]

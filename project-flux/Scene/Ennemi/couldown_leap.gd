@@ -13,9 +13,7 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 	var enemie:Templar = actor as Templar
 	var player:Player = blackboard.get_value("target")
 	
-	return FAILURE
-
-	if enemie.slash_attaque_ready:
+	if enemie.leap_attaque_ready:
 		return SUCCESS
-		
+	
 	return FAILURE

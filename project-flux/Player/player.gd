@@ -108,7 +108,6 @@ func hurt(damage:int = 1) -> void:
 		$InvicibilityTimer.start()
 		debug_reset_invicibility_frame()
 		$AnimationPlayer.play("invincibility_frame")
-		print("animation play")
 
 
 func _on_invicibility_timer_timeout() -> void:
