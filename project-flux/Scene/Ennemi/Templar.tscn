@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cvkmyusemo5kt" path="res://Image/Ennemi/Templar_eletricAttack.png" id="2_vktyl"]
 [ext_resource type="Script" uid="uid://bbgv7rx848lwo" path="res://Scene/Ennemi/AI/condition_medium_range.gd" id="4_0nd5p"]
 [ext_resource type="Script" uid="uid://8hn4kne15ac5" path="res://addons/beehave/nodes/composites/selector.gd" id="4_bkwx7"]
+[ext_resource type="Texture2D" uid="uid://bq1kselsf6qom" path="res://Image/Ennemi/Templar_electric_jump.png" id="4_deire"]
 [ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="5_po7w5"]
 [ext_resource type="Script" uid="uid://mqbgibkn7oj1" path="res://Scene/Ennemi/portee_small.gd" id="6_h8ela"]
 [ext_resource type="Script" uid="uid://dhk3bhwa70pjv" path="res://Scene/Ennemi/couldown_eletric_field.gd" id="7_e3y73"]
@@ -23,10 +24,18 @@
 [ext_resource type="Script" uid="uid://cunl77hqu627l" path="res://Scene/Ennemi/wait.gd" id="12_qkobf"]
 [ext_resource type="Script" uid="uid://ba0tp86x2wsv0" path="res://Scene/Ennemi/wait_leap_animation.gd" id="14_suvr1"]
 [ext_resource type="Texture2D" uid="uid://dv8n3ctc6lna8" path="res://Image/Ennemi/RedSword.png" id="16_suvr1"]
+[ext_resource type="Script" uid="uid://qbomgltfldj1" path="res://Scene/Ennemi/portee_large.gd" id="22_y5pkm"]
 [ext_resource type="Texture2D" uid="uid://b7jxeej754uhl" path="res://Image/Ennemi/EletricField.png" id="22_ydijo"]
+[ext_resource type="Script" uid="uid://c4l5q2b6rkbxv" path="res://Scene/Ennemi/couldown_jump.gd" id="23_y5pkm"]
+[ext_resource type="Script" uid="uid://cwdc5xv4dpxve" path="res://Scene/Ennemi/select_jump_target.gd" id="24_8o2up"]
+[ext_resource type="Script" uid="uid://dq1lnf86ifm78" path="res://Scene/Ennemi/play_up_animation.gd" id="26_deire"]
+[ext_resource type="Script" uid="uid://d4bl1g5gm5d1x" path="res://Scene/Ennemi/go_to.gd" id="27_4akfe"]
+[ext_resource type="Script" uid="uid://becmbkn1fap7m" path="res://Scene/Ennemi/play_down_animation.gd" id="28_685ur"]
+[ext_resource type="Script" uid="uid://cdm6muemrak6w" path="res://Scene/Ennemi/jump_eletric_field.gd" id="29_8ax6q"]
+[ext_resource type="Script" uid="uid://bjravkyyrrtvs" path="res://Scene/Ennemi/enemie_get_up.gd" id="30_3c7w3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vktyl"]
-radius = 140.0
+radius = 130.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ydijo"]
 atlas = ExtResource("2_vktyl")
@@ -99,6 +108,74 @@ region = Rect2(128, 0, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_pbbt8"]
 atlas = ExtResource("2_vktyl")
 region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3gk4"]
+atlas = ExtResource("4_deire")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkmwk"]
+atlas = ExtResource("4_deire")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8fgk"]
+atlas = ExtResource("4_deire")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tyit"]
+atlas = ExtResource("4_deire")
+region = Rect2(384, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gewqb"]
+atlas = ExtResource("4_deire")
+region = Rect2(512, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsu2r"]
+atlas = ExtResource("4_deire")
+region = Rect2(0, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2tt8"]
+atlas = ExtResource("4_deire")
+region = Rect2(128, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mntns"]
+atlas = ExtResource("4_deire")
+region = Rect2(256, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omqkl"]
+atlas = ExtResource("4_deire")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6u2t"]
+atlas = ExtResource("4_deire")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16esi"]
+atlas = ExtResource("4_deire")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbgrn"]
+atlas = ExtResource("4_deire")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bajtj"]
+atlas = ExtResource("4_deire")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rmtm"]
+atlas = ExtResource("4_deire")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20lt7"]
+atlas = ExtResource("4_deire")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itot3"]
+atlas = ExtResource("4_deire")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fhfg"]
+atlas = ExtResource("4_deire")
+region = Rect2(512, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s1oq8"]
 atlas = ExtResource("2_vaddn")
@@ -200,6 +277,67 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_q3gk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkmwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8fgk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tyit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gewqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsu2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2tt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mntns")
+}],
+"loop": false,
+"name": &"SplahJump",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omqkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6u2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16esi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbgrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bajtj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rmtm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20lt7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itot3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fhfg")
+}],
+"loop": false,
+"name": &"StartJump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_s1oq8")
 }, {
 "duration": 1.0,
@@ -259,6 +397,38 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_vaddn"]
 resource_name = "Idle"
 loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_deire"]
+resource_name = "Jump"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TemplarSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -50)]
+}
+
+[sub_resource type="Animation" id="Animation_4akfe"]
+resource_name = "Landing"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TemplarSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(3, 2),
+"update": 0,
+"values": [Vector2(0, -50), Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_qkobf"]
 resource_name = "LeapSlash"
@@ -458,6 +628,18 @@ tracks/11/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("TemplarSprite:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_s1oq8"]
 resource_name = "SwordSlash"
@@ -587,6 +769,8 @@ tracks/9/keys = {
 _data = {
 &"ElectricField": SubResource("Animation_e3y73"),
 &"Idle": SubResource("Animation_vaddn"),
+&"Jump": SubResource("Animation_deire"),
+&"Landing": SubResource("Animation_4akfe"),
 &"LeapSlash": SubResource("Animation_qkobf"),
 &"RESET": SubResource("Animation_g4k8i"),
 &"SwordSlash": SubResource("Animation_s1oq8")
@@ -628,7 +812,6 @@ shape = SubResource("CircleShape2D_vktyl")
 [node name="TemplarSprite" type="AnimatedSprite2D" parent="." unique_id=1253169841]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_kon4d")
-animation = &"Reset_electric"
 
 [node name="BeehaveTree" type="Node" parent="." unique_id=1072440209 node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_qoath")
@@ -720,6 +903,42 @@ metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 script = ExtResource("7_vaddn")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
+[node name="SequenceLarge" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee" unique_id=761313614]
+script = ExtResource("5_po7w5")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"
+
+[node name="PorteeLarge" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceLarge" unique_id=1962498916]
+script = ExtResource("22_y5pkm")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="CouldownJump" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceLarge" unique_id=1124306643]
+script = ExtResource("23_y5pkm")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="SelectJumpTarget" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceLarge" unique_id=1183134164]
+script = ExtResource("24_8o2up")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="PlayUpAnimation" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceLarge" unique_id=765778523]
+script = ExtResource("26_deire")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="GoTo" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceLarge" unique_id=701876074]
+script = ExtResource("27_4akfe")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="PlayDownAnimation" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceLarge" unique_id=230019838]
+script = ExtResource("28_685ur")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="JumpEletricField" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceLarge" unique_id=762124786]
+script = ExtResource("29_8ax6q")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="EnemieGetUp" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceLarge" unique_id=1613884864]
+script = ExtResource("30_3c7w3")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
 [node name="FollowPlayer" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=186517694]
 script = ExtResource("8_vaddn")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
@@ -791,6 +1010,11 @@ one_shot = true
 wait_time = 3.0
 one_shot = true
 
+[node name="JumpTimer" type="Timer" parent="Couldown" unique_id=778041223]
+wait_time = 12.0
+
+[node name="InitialJumpTimer" type="Timer" parent="Couldown" unique_id=41713251]
+
 [node name="Player_Attaque1" type="Area2D" parent="." unique_id=1929658722]
 collision_layer = 4
 collision_mask = 32
@@ -818,12 +1042,17 @@ shape = SubResource("RectangleShape2D_5w50x")
 [connection signal="area_entered" from="Eletric_field/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="animation_finished" from="TemplarSprite" to="BeehaveTree/SelectorComposite/CheckPortee/SequenceSmall/Templar_Sit" method="_on_templar_sprite_animation_finished"]
 [connection signal="animation_finished" from="TemplarSprite" to="BeehaveTree/SelectorComposite/CheckPortee/SequenceSmall/Templar_getUp" method="_on_templar_sprite_animation_finished"]
+[connection signal="animation_finished" from="TemplarSprite" to="BeehaveTree/SelectorComposite/CheckPortee/SequenceLarge/PlayUpAnimation" method="_on_templar_sprite_animation_finished"]
+[connection signal="animation_finished" from="TemplarSprite" to="BeehaveTree/SelectorComposite/CheckPortee/SequenceLarge/PlayDownAnimation" method="_on_templar_sprite_animation_finished"]
+[connection signal="animation_finished" from="TemplarSprite" to="BeehaveTree/SelectorComposite/CheckPortee/SequenceLarge/EnemieGetUp" method="_on_templar_sprite_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="BeehaveTree/SelectorComposite/CheckPortee/SequenceSmall/Attaque_ElectricField" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="BeehaveTree/SelectorComposite/CheckPortee/SequenceMoyenne/SelectorMoyenne/Leap_Attaque/WaitLeapAnimation" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="BeehaveTree/SelectorComposite/CheckPortee/SequenceMoyenne/SelectorMoyenne/Slash_Attaque/AttaqueJoueur" method="_on_animation_player_animation_finished"]
-[connection signal="animation_finished" from="AnimationPlayer" to="BeehaveTree/SelectorComposite/CheckPortee/SequenceSmall/Attaque_ElectricField" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="BeehaveTree/SelectorComposite/CheckPortee/SequenceLarge/JumpEletricField" method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="Sword_Rotation/Rotation_FirstSword/Position_FirstSword/Area_FirstSword" to="." method="_on_area_first_sword_area_entered"]
 [connection signal="area_entered" from="Sword_Rotation/Rotation_SecondSword/Position_SecondSword/Area_SecondSword" to="." method="_on_area_second_sword_area_entered"]
 [connection signal="timeout" from="Couldown/SlashTimer" to="." method="_on_slash_timer_timeout"]
 [connection signal="timeout" from="Couldown/LeapTimer" to="." method="_on_leap_timer_timeout"]
 [connection signal="timeout" from="Couldown/InitialLeapTimer" to="." method="_on_initial_leap_timer_timeout"]
 [connection signal="timeout" from="Couldown/ElectricField" to="." method="_on_electric_field_timeout"]
+[connection signal="timeout" from="Couldown/JumpTimer" to="." method="_on_jump_timer_timeout"]

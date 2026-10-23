@@ -23,6 +23,8 @@ var initial_leap_attaque_ready:bool = false
 
 var eletric_field_attaque_ready:bool = true
 
+var jump_attaque_ready:bool = true
+
 var move_direction:Vector2 = Vector2.ZERO
 
 var cur_attack:Attack_Type = Attack_Type.NONE
@@ -45,6 +47,7 @@ func _ready() -> void:
 	behave_tree.blackboard.set_value("target",get_tree().get_first_node_in_group("Player"))
 	$TemplarSprite.play("default")
 	$AnimationPlayer.play("Idle")
+	start_jump_timer()
 	pass # Replace with function body.
 
 
@@ -131,4 +134,14 @@ func _on_electric_field_timeout() -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	hurt_player()
+	pass # Replace with function body.
+
+func start_jump_timer() -> void:
+	$AnimationPlayer.play("RESET")
+	jump_attaque_ready = false
+	if $Couldown/JumpTimer.is_stopped():
+		$Couldown/JumpTimer.start()
+
+func _on_jump_timer_timeout() -> void:
+	jump_attaque_ready = true
 	pass # Replace with function body.
