@@ -76,10 +76,9 @@ scale = Vector2(1, 60.479996)
 
 [node name="Templar" parent="." unique_id=2005835324 node_paths=PackedStringArray("tile_manager") instance=ExtResource("8_75buv")]
 position = Vector2(576, 501)
-health = 1
+health = 3
 second_phase_health = 2
 tile_manager = NodePath("../TileManager")
-activate_AI = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2113176329]
 stream = ExtResource("9_c2iwn")
