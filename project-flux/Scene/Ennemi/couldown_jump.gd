@@ -1,5 +1,6 @@
 extends ConditionLeaf
 
+@export var activate_jump:bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,7 +15,12 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 	var enemie:Templar = actor as Templar
 	var player:Player = blackboard.get_value("target")
 	
-
+	if !activate_jump:
+		return FAILURE
+	
+	if !enemie.Attaque_activated.get("Jump"):
+		return FAILURE
+	
 	if enemie.jump_attaque_ready:
 		return SUCCESS
 		

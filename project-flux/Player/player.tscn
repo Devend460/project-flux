@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://j1r8illdndx6" path="res://Player/right_arm.gd" id="12_5htga"]
 [ext_resource type="Texture2D" uid="uid://dglf2g3whfiux" path="res://Image/Player/right_arm_1frame.png" id="12_dkpta"]
 [ext_resource type="Script" uid="uid://b0hdgaohnuxsr" path="res://Player/right_arm_canalisation.gd" id="14_lfmf2"]
+[ext_resource type="AudioStream" uid="uid://bquhmwnflwb6n" path="res://Sound/SFX/FootStep.mp3" id="17_pisgm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwnis"]
 size = Vector2(19, 41)
@@ -370,6 +371,11 @@ libraries/ = SubResource("AnimationLibrary_k53q1")
 [node name="EnergyTimer" type="Timer" parent="." unique_id=1176263986]
 wait_time = 8.0
 one_shot = true
+
+[node name="FootStepPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1529220154]
+stream = ExtResource("17_pisgm")
+volume_db = -6.0
+parameters/looping = true
 
 [connection signal="animation_finished" from="Body/Torso" to="Body/Torso" method="_on_animation_finished"]
 [connection signal="timeout" from="Body/Torso/ChargingFrameTimer" to="Body/Torso" method="_on_charging_frame_timer_timeout"]

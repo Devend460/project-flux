@@ -1,11 +1,29 @@
 extends Node2D
 class_name Templar
 
-@export
-var health:int = 10;
 
-@export
-var speed:float = 300;
+@export var health:int = 10;
+
+@export var second_phase_health:int = 5;
+
+@export var speed:float = 300;
+
+@export var tile_manager:TileManager;
+
+@export var activate_Trap:bool = true;
+
+@export var activate_AI:bool = true;
+
+@export var Attaque_activated = {
+	"Slash" = true,
+	"Leap" = true,
+	"Electric_Field" = true,
+	"Jump" = true
+}
+
+@export var Sprite_to_hide:Array[CanvasItem] = []
+
+@export var fow_material:ShaderMaterial
 
 @onready var behave_tree:BeehaveTree = $BeehaveTree
 
@@ -31,6 +49,8 @@ var cur_attack:Attack_Type = Attack_Type.NONE
 
 var last_attack:Attack_Type = Attack_Type.NONE
 
+var second_phase = false
+
 enum Attack_Type {
 	NONE = 0,
 	FLUX_ZONE = 1,
@@ -40,13 +60,18 @@ enum Attack_Type {
 	
 }
 
-
+signal Start_second_phase
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	behave_tree.blackboard.set_value("target",get_tree().get_first_node_in_group("Player"))
+	if !activate_AI:
+		behave_tree.set_process(false)
+		behave_tree.set_physics_process(false)
 	$TemplarSprite.play("default")
 	$AnimationPlayer.play("Idle")
+	$TrapCreator.tileManager = tile_manager
+	$TrapCreator.activate_trap = activate_Trap
 	start_jump_timer()
 	pass # Replace with function body.
 
@@ -85,9 +110,11 @@ func hurt() -> void:
 	#Verifier si un attaque a deja fait des degats,
 	#Le faire du cote de l'explosion peut être ? donc juste faire une fonction hurt et l'attaque gere elle meme
 	health -= 1
-	print(health)
 	if health<= 0 :
-		queue_free()
+		if second_phase:
+			queue_free()
+		else:
+			start_second_phase()
 	
 	pass
 
@@ -145,3 +172,18 @@ func start_jump_timer() -> void:
 func _on_jump_timer_timeout() -> void:
 	jump_attaque_ready = true
 	pass # Replace with function body.
+
+func play_sound(stream:AudioStream, volume:float = 0.0, pitch:float = 1.0) -> void:
+	$AudioStreamPlayer.stop()
+	$AudioStreamPlayer.stream = stream
+	$AudioStreamPlayer.volume_db = volume
+	$AudioStreamPlayer.pitch_scale = pitch
+	$AudioStreamPlayer.play()
+	pass
+
+func start_second_phase() -> void:
+	second_phase = true
+	for i in Sprite_to_hide:
+		i.material = fow_material
+	health = second_phase_health
+	Start_second_phase.emit()

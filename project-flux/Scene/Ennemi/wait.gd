@@ -3,7 +3,6 @@ extends ActionLeaf
 class_name WaitLeaf
 
 
-@export var wait_time:float = 1
 
 var initial_animation_ready:bool = false
 

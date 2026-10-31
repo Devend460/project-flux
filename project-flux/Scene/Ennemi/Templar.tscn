@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bb0t2ovl7wifo" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_qoath"]
 [ext_resource type="Texture2D" uid="uid://bgx06qbwbdv5l" path="res://Image/Ennemi/Templar_down.png" id="2_vaddn"]
 [ext_resource type="Texture2D" uid="uid://cvkmyusemo5kt" path="res://Image/Ennemi/Templar_eletricAttack.png" id="2_vktyl"]
+[ext_resource type="Material" uid="uid://cglv5psy4v68n" path="res://Texture/Material/fow_material.tres" id="3_issd6"]
 [ext_resource type="Script" uid="uid://bbgv7rx848lwo" path="res://Scene/Ennemi/AI/condition_medium_range.gd" id="4_0nd5p"]
 [ext_resource type="Script" uid="uid://8hn4kne15ac5" path="res://addons/beehave/nodes/composites/selector.gd" id="4_bkwx7"]
 [ext_resource type="Texture2D" uid="uid://bq1kselsf6qom" path="res://Image/Ennemi/Templar_electric_jump.png" id="4_deire"]
@@ -33,6 +34,7 @@
 [ext_resource type="Script" uid="uid://becmbkn1fap7m" path="res://Scene/Ennemi/play_down_animation.gd" id="28_685ur"]
 [ext_resource type="Script" uid="uid://cdm6muemrak6w" path="res://Scene/Ennemi/jump_eletric_field.gd" id="29_8ax6q"]
 [ext_resource type="Script" uid="uid://bjravkyyrrtvs" path="res://Scene/Ennemi/enemie_get_up.gd" id="30_3c7w3"]
+[ext_resource type="PackedScene" uid="uid://bhymd8nccbgo5" path="res://Scene/Ennemi/TrapCreator.tscn" id="34_lk2bg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vktyl"]
 radius = 130.0
@@ -432,7 +434,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_qkobf"]
 resource_name = "LeapSlash"
-length = 2.1
+length = 2.35
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -440,7 +442,7 @@ tracks/0/path = NodePath("Sword_Rotation/Rotation_SecondSword:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.75, 1.25),
+"times": PackedFloat32Array(0, 1, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [-1.2217304763960306, -1.2217304763960306, 1.2217304763960306]
@@ -452,7 +454,7 @@ tracks/1/path = NodePath("Sword_Rotation/Rotation_SecondSword:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.75),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -476,7 +478,7 @@ tracks/3/path = NodePath("Sword_Rotation/Rotation_SecondSword/Position_SecondSwo
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.75),
+"times": PackedFloat32Array(0, 0.6, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -788,9 +790,11 @@ size = Vector2(109, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5w50x"]
 size = Vector2(44, 26)
 
-[node name="Templar" type="Node2D" unique_id=2005835324]
+[node name="Templar" type="Node2D" unique_id=2005835324 node_paths=PackedStringArray("Sprite_to_hide")]
 script = ExtResource("1_5lrpp")
 speed = 100.0
+Sprite_to_hide = [NodePath("Eletric_field/Sprite2D"), NodePath("TemplarSprite"), NodePath("Sword_Rotation/Rotation_FirstSword/Position_FirstSword/First_Sword"), NodePath("Sword_Rotation/Rotation_SecondSword/Position_SecondSword/Second_Sword")]
+fow_material = ExtResource("3_issd6")
 
 [node name="Eletric_field" type="Node2D" parent="." unique_id=1366997930]
 visible = false
@@ -816,7 +820,7 @@ sprite_frames = SubResource("SpriteFrames_kon4d")
 [node name="BeehaveTree" type="Node" parent="." unique_id=1072440209 node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_qoath")
 actor_node_path = NodePath("..")
-blackboard = NodePath("@Node@18811")
+blackboard = NodePath("@Node@32576")
 actor = NodePath("..")
 metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 
@@ -874,6 +878,7 @@ metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 
 [node name="SelectTarget" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceMoyenne/SelectorMoyenne/Leap_Attaque" unique_id=1193408148]
 script = ExtResource("11_suvr1")
+pitch = 0.4
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="Wait" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceMoyenne/SelectorMoyenne/Leap_Attaque" unique_id=1311186719]
@@ -901,6 +906,7 @@ metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 
 [node name="AttaqueJoueur" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee/SequenceMoyenne/SelectorMoyenne/Slash_Attaque" unique_id=665323982]
 script = ExtResource("7_vaddn")
+pitch = 2.5
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="SequenceLarge" type="Node" parent="BeehaveTree/SelectorComposite/CheckPortee" unique_id=761313614]
@@ -1003,7 +1009,6 @@ wait_time = 5.0
 one_shot = true
 
 [node name="InitialLeapTimer" type="Timer" parent="Couldown" unique_id=461221446]
-wait_time = 0.75
 one_shot = true
 
 [node name="ElectricField" type="Timer" parent="Couldown" unique_id=1487762483]
@@ -1039,6 +1044,12 @@ collision_mask = 32
 position = Vector2(0, -58)
 shape = SubResource("RectangleShape2D_5w50x")
 
+[node name="TrapCreator" parent="." unique_id=1759398777 instance=ExtResource("34_lk2bg")]
+trapToCreate = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1911775929]
+
+[connection signal="Start_second_phase" from="." to="TrapCreator" method="_on_templar_start_second_phase"]
 [connection signal="area_entered" from="Eletric_field/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="animation_finished" from="TemplarSprite" to="BeehaveTree/SelectorComposite/CheckPortee/SequenceSmall/Templar_Sit" method="_on_templar_sprite_animation_finished"]
 [connection signal="animation_finished" from="TemplarSprite" to="BeehaveTree/SelectorComposite/CheckPortee/SequenceSmall/Templar_getUp" method="_on_templar_sprite_animation_finished"]

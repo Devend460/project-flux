@@ -48,6 +48,7 @@ func _process(delta: float) -> void:
 			var mouse_position:Vector2 = get_global_mouse_position()
 			var direction = global_position.direction_to(mouse_position)
 			start_explosion_canalisation(global_position + direction*attack_range)
+	RenderingServer.global_shader_parameter_set("player_pos", global_position)
 	pass
 
 
@@ -60,6 +61,13 @@ func _physics_process(delta: float) -> void:
 	#Si le joueur peut marcher, sa velocity de base par de sa marche
 	if array_status_effect.find(StatusEffect.Canalisation) == -1:
 		walk_velocity = do_walking(direction)
+		if walk_velocity != Vector2.ZERO:
+			if !$FootStepPlayer.playing:
+				$FootStepPlayer.play()
+		elif $FootStepPlayer.playing :
+			$FootStepPlayer.stop()
+	elif $FootStepPlayer.playing :
+		$FootStepPlayer.stop()
 	
 	var inpulse_velocity = Vector2.ZERO
 	
@@ -82,6 +90,7 @@ func _physics_process(delta: float) -> void:
 	#Ajout d'autre vecteur a velocity si necessaire
 	velocity = walk_velocity + inpulse_velocity
 	move_and_slide()
+
 
 func do_walking(direction:Vector2)->Vector2:
 	if direction != Vector2(0,0):
@@ -113,8 +122,12 @@ func hurt(damage:int = 1) -> void:
 func _on_invicibility_timer_timeout() -> void:
 	#Check if player is still on a trap
 	if !cur_trap_overlap.is_empty():
+		for i in cur_trap_overlap:
+			if i.can_damage:
+				hurt()
+				return
 		#Pour l'instant pas de double degats donc on peut juste hurt
-		hurt()
+		
 	else:
 		$AnimationPlayer.play("RESET")
 	pass # Replace with function body.

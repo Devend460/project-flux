@@ -2,6 +2,12 @@
 extends ActionLeaf
 class_name AttakPlayer
 
+@export var audio_stream:AudioStream = preload("res://Sound/SFX/Sword_Slash_reduce.wav")
+
+@export var volume_db:float = 0.0
+
+@export var pitch:float = 1.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,7 +19,9 @@ func _process(delta: float) -> void:
 	pass
 
 func before_run(actor: Node, blackboard: Blackboard) -> void:
+	var enemie:Templar = actor as Templar
 	anim_finished = false
+	enemie.play_sound(audio_stream,volume_db,pitch)
 
 func tick(actor: Node, blackboard: Blackboard) -> int:
 	var enemie:Templar = actor as Templar

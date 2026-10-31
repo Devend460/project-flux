@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://caa36h0xxkvti" path="res://Scene/UI/inGameUI.tscn" id="7_75buv"]
 [ext_resource type="PackedScene" uid="uid://cbb88hbb44o61" path="res://Scene/Trap/TrapPatternDebug.tscn" id="7_ow1sv"]
 [ext_resource type="PackedScene" uid="uid://dogxi3wxf25sb" path="res://Scene/Ennemi/Templar.tscn" id="8_75buv"]
+[ext_resource type="AudioStream" uid="uid://drgifcat8q40k" path="res://Sound/Musique/Music.mp3" id="9_c2iwn"]
 
 [node name="Main" type="Node2D" unique_id=775579045]
 
@@ -15,6 +16,17 @@
 
 [node name="InGameUi" parent="CanvasLayer" unique_id=87047016 node_paths=PackedStringArray("player_character") instance=ExtResource("7_75buv")]
 player_character = NodePath("../../Player")
+
+[node name="Darker_Screen" type="CanvasLayer" parent="." unique_id=145298650]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Darker_Screen" unique_id=248055315]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="floor" type="Sprite2D" parent="." unique_id=1060328449]
 z_index = -10
@@ -62,5 +74,15 @@ position = Vector2(582, 1035)
 rotation = 1.5707964
 scale = Vector2(1, 60.479996)
 
-[node name="Templar" parent="." unique_id=2005835324 instance=ExtResource("8_75buv")]
+[node name="Templar" parent="." unique_id=2005835324 node_paths=PackedStringArray("tile_manager") instance=ExtResource("8_75buv")]
 position = Vector2(576, 501)
+health = 1
+second_phase_health = 2
+tile_manager = NodePath("../TileManager")
+activate_AI = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2113176329]
+stream = ExtResource("9_c2iwn")
+volume_db = -14.0
+autoplay = true
+parameters/looping = true

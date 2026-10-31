@@ -73,3 +73,18 @@ Sweep={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+
+[shader_globals]
+
+player_pos={
+"type": "vec2",
+"value": Vector2(0, 0)
+}
+fow_radius={
+"type": "float",
+"value": 300.0
+}
+fow_brouillard={
+"type": "float",
+"value": 250.0
+}

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://1rtju0yg8c6h" path="res://Image/Tile/Trap_Sword_Sheet.png" id="1_i4wsn"]
 [ext_resource type="Script" uid="uid://cycqr4nehdk0j" path="res://Scene/Trap/IndividualTrap/trap_sword.gd" id="1_wufet"]
+[ext_resource type="Material" uid="uid://cglv5psy4v68n" path="res://Texture/Material/fow_material.tres" id="2_nnnpu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i4bp5"]
 atlas = ExtResource("1_i4wsn")
@@ -125,6 +126,7 @@ size = Vector2(23, 30)
 [node name="TrapSword" type="Node2D" unique_id=1163281709]
 scale = Vector2(2, 2)
 script = ExtResource("1_wufet")
+fow_material = ExtResource("2_nnnpu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=656864911]
 position = Vector2(16, 16)

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bhymd8nccbgo5"]
+
+[ext_resource type="Script" uid="uid://btcp0cxb62kxf" path="res://Scene/Ennemi/trap_creator.gd" id="1_0cs53"]
+
+[node name="TrapCreator" type="Node2D" unique_id=1759398777]
+script = ExtResource("1_0cs53")

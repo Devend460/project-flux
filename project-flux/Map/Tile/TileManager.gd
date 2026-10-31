@@ -2,7 +2,7 @@ class_name TileManager
 extends Node2D
 
 static var TileSize:float = 64;
-static var ArenaWidth:int = 18;
+static var ArenaWidth:int = 17;
 static var ArenaHeigh:int = 16;
 
 

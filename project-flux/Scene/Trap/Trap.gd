@@ -6,6 +6,13 @@ var player:Player
 @export
 var damage:int = 1
 
+@export
+var fow_material:ShaderMaterial
+
+var can_damage = false
+
+signal trap_finished(trap:Trap)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -36,4 +43,10 @@ func del_from_player() -> void:
 	var index = player.cur_trap_overlap.find(self)
 	if index != -1:
 		player.cur_trap_overlap.remove_at(index)
+	pass
+
+func trap_ended() ->void:
+	trap_finished.emit(self)
+
+func activate_fow()->void:
 	pass

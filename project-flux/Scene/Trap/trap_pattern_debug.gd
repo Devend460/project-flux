@@ -1,4 +1,6 @@
 extends Node2D
+class_name TrapDebugPattern
+
 
 var TrapDict = {
 	1:preload("res://Scene/Trap/TrapSwordPattern.tscn"),

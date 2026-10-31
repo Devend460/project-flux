@@ -33,7 +33,6 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 
 func _on_templar_sprite_animation_finished() -> void:
 	if enemie != null:
-		print(enemie.animation_player.current_animation)
 		if enemie.templar_sprite.animation == "StartJump":
 			anim_finished = true
 	pass # Replace with function body.

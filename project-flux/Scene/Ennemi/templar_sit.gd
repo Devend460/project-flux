@@ -4,6 +4,12 @@ var anim_finished = false
 
 var enemie:Templar
 
+@export var audio_stream:AudioStream = preload("res://Sound/SFX/Crouch.mp3")
+
+@export var volume_db:float = 0.0
+
+@export var pitch:float = 1.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -18,6 +24,7 @@ func before_run(actor: Node, blackboard: Blackboard) -> void:
 	anim_finished = false
 	enemie.stop()
 	enemie.templar_sprite.play("Charging_electric")
+	enemie.play_sound(audio_stream,volume_db,pitch)
 	pass
 
 func tick(actor: Node, blackboard: Blackboard) -> int:
